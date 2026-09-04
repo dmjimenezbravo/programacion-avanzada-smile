@@ -1,0 +1,26 @@
+# Maven
+target/
+
+# Modelos serializados generados al ejecutar Ejemplo03Clasificacion (Write.object)
+modelo-rf.sml
+
+# Compiled class files
+*.class
+
+# IDE
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code (local/session-specific, not shared)
+.claude/settings.local.json
+.claude/history/
+.claude/shell-snapshots/
+.claude/todos/
+.claude/statsig/

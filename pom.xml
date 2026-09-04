@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>es.usal</groupId>
+    <artifactId>smile-ejemplos</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Ejemplos de SMILE</name>
+    <description>Ejemplos didacticos de la libreria SMILE (JVM) para Programacion Avanzada</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>25</maven.compiler.release>
+        <smile.version>6.3.0</smile.version>
+    </properties>
+
+    <dependencies>
+        <!-- Nucleo de SMILE: clasificacion, regresion, clustering, feature engineering.
+             Arrastra transitivamente smile-base (DataFrame, io, math, tensor). -->
+        <dependency>
+            <groupId>com.github.haifengl</groupId>
+            <artifactId>smile-core</artifactId>
+            <version>${smile.version}</version>
+        </dependency>
+
+        <!-- SMILE usa SLF4J para trazas. Sin un binding solo veras un aviso por consola. -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.16</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Opcionales:
+        <dependency>
+            <groupId>com.github.haifengl</groupId>
+            <artifactId>smile-plot</artifactId>   Graficos Swing / Vega-Lite
+            <version>${smile.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.haifengl</groupId>
+            <artifactId>smile-nlp</artifactId>    Procesamiento de lenguaje natural
+            <version>${smile.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.haifengl</groupId>
+            <artifactId>smile-deep</artifactId>   LibTorch: deep learning y LLMs
+            <version>${smile.version}</version>
+        </dependency>
+        -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <!-- mvn compile exec:java -Dexec.mainClass=es.usal.smile.Ejemplo03Clasificacion -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>es.usal.smile.Ejemplo01CargaDatos</mainClass>
+                    <!-- Algunas rutinas de algebra lineal usan la Foreign Function API.
+                         Este flag evita los avisos de acceso nativo restringido. -->
+                    <commandlineArgs>--enable-native-access=ALL-UNNAMED</commandlineArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
