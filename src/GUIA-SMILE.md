@@ -390,25 +390,7 @@ incremental). Para reducción no lineal seria, `smile.manifold` trae `TSNE`,
 
 ---
 
-## 10. Ideas de uso en docencia
-
-- **Programación Avanzada**: los ejemplos 3 a 6 cubren el bloque de aprendizaje
-  automático clásico sin salir de Java, así que los alumnos no tienen que
-  cambiar de lenguaje a mitad de asignatura. El ejemplo 4 sirve para discutir
-  sesgo-varianza con datos de generador conocido.
-- **Programación III**: el diseño de SMILE es un buen caso de estudio de POO
-  moderna en Java — interfaces con métodos estáticos y por defecto
-  (`Standardizer`, `Transform`), records para valor inmutable (`Options`,
-  `CentroidClustering`, `ClassificationMetrics`), genéricos acotados en
-  `Classifier<T>`, y expresiones lambda como estrategia de entrenamiento en la
-  validación cruzada.
-- Una práctica que funciona bien: dar el pipeline montado y pedir que sustituyan
-  el clasificador y comparen con validación cruzada, discutiendo la desviación
-  típica entre pliegues y no solo la media.
-
----
-
-## 11. Referencias
+## 10. Referencias
 
 - Web oficial: <https://haifengl.github.io/>
 - Repositorio: <https://github.com/haifengl/smile>
